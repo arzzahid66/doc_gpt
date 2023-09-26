@@ -14,8 +14,8 @@ from langchain import HuggingFaceHub
 from streamlit_chat import message
 from langchain.callbacks import get_openai_callback
 from sentence_transformers import SentenceTransformer
-
-openapi_key = st.secrets["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"]
+OPENAI_API_KEY = "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"
+openapi_key = st.secrets["OPENAI_API_KEY"]
 
 # "with" notation
 def main():
