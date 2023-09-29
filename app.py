@@ -15,15 +15,14 @@ from streamlit_chat import message
 from langchain.callbacks import get_openai_callback
 from sentence_transformers import SentenceTransformer
 
-
-openapi_key = "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"
-
-
+#OPENAI_API_KEY = "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"
+#openapi_key = st.secrets["OPENAI_API_KEY"]
+openapi_key = [""]
 # "with" notation
 def main():
     load_dotenv()
     st.set_page_config(page_title="Chat with your file")
-    st.header("DocumentGPT by ARZ Talk to your Documents ")
+    st.header("DocumentGPT")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
@@ -35,7 +34,7 @@ def main():
     with st.sidebar:
         uploaded_files =  st.file_uploader("Upload your file",type=['pdf'],accept_multiple_files=True)
         openai_api_key = openapi_key
-        # openai_api_key = st.text_input("OpenAI API Key", key=openapi_key , type="password")
+        openai_api_key = st.text_input("OpenAI API Key", key=openapi_key , type="password")
         process = st.button("Process")
     if process:
         if not openai_api_key:
